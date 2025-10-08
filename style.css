@@ -1,0 +1,135 @@
+:root{
+  --bg1: linear-gradient(135deg,#6b7cff,#b065ff);
+  --panel:#1d1f2a;
+  --accent:#ffb86b;
+  --accent-2:#27d07a;
+  --danger:#ff6b6b;
+  --text:#e6eef8;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, Poppins, system-ui, sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: var(--bg1);
+}
+
+.calculator {
+  width: 100%;
+  background: #000;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.wrap {
+  width: 360px;
+  max-width: 96vw;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.display {
+  height: 72px;
+  border-radius: 14px;
+  background: linear-gradient(180deg,#1f1f2a,#2a2a3a);
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 14px 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5), inset 0 -4px 12px rgba(255,255,255,0.05);
+  overflow: hidden;
+  word-break: break-all;
+  transition: 0.3s;
+}
+
+.display .small {
+  color: #fff;
+  font-size: 13px;
+  margin-right: auto;
+}
+
+.keys {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(5,64px);
+  gap: 12px;
+  grid-template-areas:
+    "clr div mul sub"
+    "seven eight nine plus"
+    "four five six equal"
+    "one two three equal"
+    "zero zero dot equal";
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  color: #fff;
+  background: linear-gradient(180deg,#343445,#2b2b3b);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .12s;
+  box-shadow: 0 6px 0 rgba(0,0,0,.25);
+}
+
+.btn:hover {transform: translateY(-3px);}
+.btn.pop {transform: scale(.98);}
+.btn.small {font-size:16px;padding:0 8px}
+
+.clr {grid-area: clr; background: linear-gradient(180deg,var(--danger),#e25555);}
+.div, .mul, .sub, .plus {
+  background: linear-gradient(180deg,var(--accent),#f6a042);
+  color: #2a1800;
+}
+
+.div {grid-area: div;}
+.mul {grid-area: mul;}
+.sub {grid-area: sub;}
+.plus {grid-area: plus;}
+.seven {grid-area: seven;}
+.eight {grid-area: eight;}
+.nine {grid-area: nine;}
+.four {grid-area: four;}
+.five {grid-area: five;}
+.six {grid-area: six;}
+.one {grid-area: one;}
+.two {grid-area: two;}
+.three {grid-area: three;}
+.zero {grid-area: zero;}
+.dot {grid-area: dot;}
+.equal {
+  grid-area: equal;
+  background: linear-gradient(180deg,#24c06c,#1ea957);
+  color: #07260f;
+  font-weight: 600;
+  box-shadow: 0 8px 0 rgba(0,0,0,.28);
+}
+
+@media(max-width:420px){
+  .keys {gap:10px; grid-template-rows:repeat(5,56px);}
+  .display {height:64px;font-size:22px;padding:10px;}
+}
+
+.note {
+  font-size: 13px;
+  color: rgba(230,238,248,.85);
+  text-align: center;
+  margin-top: 6px;
+}
